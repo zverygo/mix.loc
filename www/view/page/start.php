@@ -1,4 +1,4 @@
-<form method="post" action="../../index.php">
+<form method="get" action="../../index.php">
     <div class="form-group">
         <label>Количество переменных</label>
         <br>

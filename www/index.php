@@ -6,10 +6,17 @@ include 'class/Post.php';
 
 $page = new Page ();
 
-if (empty($_POST['x']) && empty($_POST['n'])) {
-    echo $page -> get_body($text, 'view/page');
+if (!isset($_GET['action'])) {
+    if (empty($_GET['x']) && empty($_GET['n'])) {
+        echo $page -> get_body($text, 'view/page');
+    }
+    else if (!empty($_GET['x']) && !empty($_GET['n'])) {
+        echo $page -> get_body($text, 'view/page');
+    }
 }
-else if (!empty($_POST['x']) && !empty($_POST['n'])) {
+else if ($_GET['action'] == 'can') {
+    //echo $_POST['0-0'];
+    //echo '111';
     echo $page -> get_body($text, 'view/page');
 }
 ?>

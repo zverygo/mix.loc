@@ -5,10 +5,15 @@
 
 <div class="container">
     <?php
-        if (empty($_POST['x']) && empty($_POST['n'])) {
-            include 'page/start.php';
+        if (empty($_GET['action'])) {
+            if (empty($_GET['x']) && empty($_GET['n'])) {
+                include 'page/start.php';
+            }
+            else if (!empty($_GET['x']) && !empty($_GET['n'])) {
+                include 'page/matrix.php';
+            }
         }
-        else if (!empty($_POST['x']) && !empty($_POST['n'])) {
+        else if ($_GET['action'] == 'can') {
             include 'page/matrix.php';
         }
     ?>
