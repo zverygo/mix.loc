@@ -50,19 +50,33 @@ echo 'Количество неравенств = '.$n.'<br>';
         <?php
             echo '<table>';
                 echo '<tr>';
-                    for ($r = 0; $r < $x; $r++){
-                        echo '<td>'.$_POST['r'.$r].'</td>';
+                    // целевая функция
+                    for ($r = 0; $r < ($x+$n); $r++){
+                        if (!empty($_POST['r'.$r])){
+                            echo '<td value ="'.$_POST['r'.$r].'" >'.$_POST['r'.$r].'</td>';
+                        } else {
+                            $_POST['r'.$r] = 0;
+                            echo '<td value ="'.$_POST['r'.$r].'" >'.$_POST['r'.$r].'</td>';
+                        }
                     }        
                 echo '<td>'.$_POST['m-m'].'</td>';
                 echo '</tr>';
+                // неравенства
                 for ($i = 0; $i < $n; $i++ ){
                     echo '<tr>';
-                    for ($j = 0; $j < $x; $j++){
-                        
-                        echo '<td>'.$_POST['a'.$i.'-'.$j].'</td>';
+                    for ($j = 0; $j < ($x+$n); $j++){
+                        if (!empty($_POST['a'.$i.'-'.$j])) {
+                            echo '<td value="'.$_POST['a'.$i.'-'.$j].'">'.$_POST['a'.$i.'-'.$j].'</td>';
+                        } else if (($i+$x) == $j) {
+                            $_POST['a'.$i.'-'.$j] = 1;
+                            echo '<td value="'.$_POST['a'.$i.'-'.$j].'">'.$_POST['a'.$i.'-'.$j].'</td>';
+                        } else {
+                            $_POST['a'.$i.'-'.$j] = 0;
+                            echo '<td value="'.$_POST['a'.$i.'-'.$j].'">'.$_POST['a'.$i.'-'.$j].'</td>';
+                        }
                     }
-                    echo '<td>'.$_POST[$i.'ner'].'</td>';
-                    echo '<td>'.$_POST['b'.$i].'</td>';
+                    echo '<td value="'.$_POST[$i.'ner'].'">'.$_POST[$i.'ner'].'</td>';
+                    echo '<td value="'.$_POST['b'.$i].'">'.$_POST['b'.$i].'</td>';
                     echo '</tr>';
                 }
             echo '</table>';
