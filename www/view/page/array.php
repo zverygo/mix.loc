@@ -72,8 +72,44 @@ for ($i=0;$i<$n;$i++) {
     //$q = $Ai[$i];
     $Cb[$i] = $arr1[$Ai[$i]];
 }
-print_r($Cb);
-    
+//print_r($Cb);
+$ved_el = $arr2[$pp][$pp_i]; //ведущий элемент
+//echo $ved_el; //ведущий элемент
+
+for ($i=0;$i<$n;$i++) {
+    if($i == $pp_i) {
+        $arr3[$i] = $arr3[$i]/$ved_el;
+    } else {
+        $arr3[$i] = $arr3[$i] - $arr2[$pp][$i]*$arr3[$pp_i]/$ved_el;
+    }
+}
+//print_r($arr3);
+
+for ($i=0;$i<$n+$x;$i++) {
+    for ($j=0;$j<$n;$j++) {
+        if($j == $pp_i) {
+            $arr2[$i][$j] = $arr2[$i][$j]/$ved_el;
+        } else {
+            $arr2[$i][$j] = $arr2[$i][$j] - $arr2[$pp][$j]*$arr2[$i][$pp_i]/$ved_el;
+        }
+    }
+}
+
+/*echo '<pre>';
+print_r($arr2);
+echo '</pre>';*/
+
+for ($i=0;$i<$x+$n;$i++){
+    $ar = array_map(function ($el1, $el2) {
+        return $el1 * $el2;
+    },
+    $Cb, $arr2[$i]);
+    $ai[$i] = array_sum($ar) - $arr1[$i];
+}
+echo '<pre>';
+print_r($ai);
+echo '</pre>';
+
 //if (min($ai)>0){ //это страка чтобы не заходить в цикл
 
 
