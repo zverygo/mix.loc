@@ -10,12 +10,18 @@ if (min($ai)<0){
     
     if (max($arr2[$pp])>=0){
         while (min($ai)<0){
-           for ($i=0;$i<$n;$i++){
+            for ($i=0;$i<$n;$i++){
                 if ($arr2[$pp][$i] > 0){
                     $ar[$i] = $arr3[$i]/$arr2[$pp][$i];
                 }
            }
-            $min_ar = min($ar); //минимальное 
+            //сделать проверку чтоб минимум не мог быть нулем!!!!!!!!!
+            echo '<pre>';
+            print_r ($ar);
+            echo '</pre>';
+            
+            echo '<br>$min_ar = '.$min_ar = min($ar); //минимальное 
+            
             $arr_i = array_keys($ar, $min_ar); 
             $pp_i = $arr_i[0]; 
             $Ai[$pp_i] = $pp; //вектор который надо вывести из базис
