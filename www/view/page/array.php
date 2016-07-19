@@ -14,13 +14,12 @@ if (min($ai)<0){
                 if ($arr2[$pp][$i] > 0){
                     $ar[$i] = $arr3[$i]/$arr2[$pp][$i];
                 }
-           }
-            //сделать проверку чтоб минимум не мог быть нулем!!!!!!!!!
-            echo '<pre>';
-            print_r ($ar);
-            echo '</pre>';
-            
-            echo '<br>$min_ar = '.$min_ar = min($ar); //минимальное 
+            }
+            //обработка возвращающая минимальный положительный отличный от нуля элемент массива ar[]
+            $output = array_filter($ar, function($elem) {
+                return $elem > 0;
+            });
+            $min_ar = min($output);
             
             $arr_i = array_keys($ar, $min_ar); 
             $pp_i = $arr_i[0]; 
@@ -74,10 +73,10 @@ echo 'Опорное решение оптимально <br>';
 $arr_i = array();
 
 for ($i=0;$i<$x;$i++) {
-    $arr_i[] = array_keys($Ai,$i); //определяем индексы вхождения мин оценки
+    $arr_i[] = array_keys($Ai,$i);
 }
 for ($i=0;$i<$x;$i++) {
-    echo '<br>Первого рессурса необходимо '.$Cb[$arr_i[$i][0]]; //определяем индексы вхождения мин оценки
+    echo '<br>'.($i+1).' рессурса необходимо '.$arr3[$arr_i[$i][0]]; 
 }
 
 
@@ -90,6 +89,6 @@ for ($i=0;$i<$x;$i++){
     $f = array_sum($ar);
 }
 
-echo '<br>'.$f; 
+echo '<br> F(x) = '.$f; 
 
 ?>
