@@ -1,7 +1,45 @@
-<select name="num">
-    <option value="-2"><</option>
-    <option value="-1"><=</option>
-    <option value="0">=</option>
-    <option value="1">>=</option>
-    <option value="2">></option>
-</select>
+<?
+
+//кол-во переменных
+$x = 4;
+//кол-во неравинств
+$n = 7;
+
+$arr2 = array (
+                array (550,40,86,160,0,3,4.5),
+                array (620,30,110,92,158,4,4.5),
+                array (0,20,150,158,30,3,4.5),
+                array (0,20,52,128,50,4,4.5)
+              );
+
+echo '<pre>';
+print_r ($arr2);
+echo '</pre>';
+
+//массив с типами неравенств -1 меньше_равно, 0 равно, 1 больше_равно
+$nn = array (1,-1,1,-1,-1,1,-1);
+//неравенства со знаком больше_равно
+$nn_b = array_keys($nn, 1);
+/*echo '<pre>';
+print_r ($nn_b);
+echo '</pre>';*/
+
+//меняем знак неравенств больше_равно
+for($i=0;$i<count($nn_b);$i++) {
+    echo '<br>';
+    for($j=0;$j<$x;$j++) {
+        echo $arr2[$j][$nn_b[$i]]*=(-1);
+    }
+}
+echo '<pre>';
+print_r ($arr2);
+echo '</pre>';
+
+//равенства
+$nn_r = array_keys($nn, 0);
+/*echo '<pre>';
+print_r ($nn_r);
+echo '</pre>';
+echo '<br>Кол-во равенств в ограничениях = '.count($nn_r);*/
+
+?>
