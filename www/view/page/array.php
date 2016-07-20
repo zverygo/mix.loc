@@ -1,4 +1,7 @@
-<?php include '../../in_data.php';?>
+<?php
+//include '../../in_data.php';
+include '../test/test.php';
+?>
 
 <?php
 //----------ПОЕХАЛИ-------------
