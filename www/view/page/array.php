@@ -5,7 +5,15 @@ include '../test/test.php';
 
 <?php
 //----------ПОЕХАЛИ-------------
-if (min($ai)<0){
+if ($m == 'max'){
+    $mm = min($ai);
+} else if ($m == 'min') {
+    $mm = max($ai);
+} else {
+    echo 'что-то пошло не так';
+}
+
+if ($mm<0){
     $min_ai = min($ai); //минимальная оценка
     $arr = array_keys($ai, min($ai)); //определяем индексы вхождения мин оценки
     $pp = $arr[0]; //номер вектора для вводы в базис
