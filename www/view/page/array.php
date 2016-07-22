@@ -1,6 +1,6 @@
 <?php
-//include '../../in_data.php';
-include '../test/test.php';
+include '../../in_data.php';
+//include '../test/test.php';
 ?>
 
 <?php
