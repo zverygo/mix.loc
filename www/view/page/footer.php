@@ -1,6 +1,6 @@
     
         <footer>
-            <p>BLOG <br> Coryright &copy; 2016</p>
+            <p>MIX <br> Coryright &copy; 2016</p>
         </footer>
     
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
