@@ -1,5 +1,5 @@
 <?php
-include '../../in_data.php';
+//include '../../in_data.php';
 //include '../test/test.php';
 ?>
 

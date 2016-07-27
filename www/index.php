@@ -15,8 +15,6 @@ if (!isset($_GET['action'])) {
     }
 }
 else if ($_GET['action'] == 'can') {
-    //echo $_POST['0-0'];
-    //echo '111';
     echo $page -> get_body($text, 'view/page');
 }
 ?>
