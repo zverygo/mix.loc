@@ -27,11 +27,9 @@ echo 'Количество неравенств = '.$n.'<br>';
                 }
                 echo '<td>
                         <select name="'.$i.'ner">
-                            <option value="m">m</option>
-                            <option value="m-r">m-r</option>
-                            <option value="r">r</option>
-                            <option value="b-r">b-r</option>
-                            <option value="b">b</option>
+                            <option value="1">≤</option>
+                            <option value="0">=</option>
+                            <option value="-1">≥</option>
                         </select>
                       </td>';
                 echo '<td><input name="'.'b'.$i.'"</td>';
